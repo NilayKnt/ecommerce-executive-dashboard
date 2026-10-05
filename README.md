@@ -28,3 +28,27 @@ FactSales (Fact Table): Contains granular transactional records including Quanti
 DimProduct (Dimension Table): Stores unique product identifier records (StockCode) cleansed of hidden spaces and case anomalies.
 DimCustomer (Dimension Table): Contains unique CustomerID entries and geographic attributes (Country), filtered for valid customer identifiers.
 DimDate (Dimension Table): A dedicated calendar table engineered to support seamless date aggregations and trend analysis.
+
+📐 Key DAX Measures
+Core KPI calculations were organized within a dedicated _Measures table to power dashboard visuals:
+Kod snippet'i
+// Total Revenue Calculation
+Total Revenue = SUMX( FactSales, FactSales[Quantity] * FactSales[UnitPrice] )
+
+// Unique Order Count
+Total Orders = DISTINCTCOUNT( FactSales[InvoiceNo] )
+
+// Active Unique Customer Count
+Total Customers = DISTINCTCOUNT( FactSales[CustomerID] )
+
+💡 Key Business Insights
+Revenue Concentration: A significant portion of total revenue is driven by the Top 10 performing stock items, indicating critical inventory management priorities.
+Geographic Distribution: The domestic market (United Kingdom) holds the primary market share, while key European markets show distinct demand patterns.
+Self-Service & Q&A Integration: Integrated natural language Q&A interface allowing stakeholders to query ad-hoc metrics dynamically on demand.
+
+🛠️ Tech Stack & Methods
+Power BI Service / Desktop — Dashboard UI & Interactive Data Visualization
+Power Query (ETL) — Data Cleaning, Text Standardization (Trim/Uppercase), & Deduplication
+DAX (Data Analysis Expressions) — Dimensional Modeling & Aggregation Measures
+Star Schema Architecture — Relational Data Modeling (1:∗ Cardinality)
+
