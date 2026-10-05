@@ -24,3 +24,7 @@ To eliminate redundant attributes, optimize analytical performance, and enable a
                                    │
                                   (1)
                                [DimDate]
+FactSales (Fact Table): Contains granular transactional records including Quantity, UnitPrice, InvoiceNo, and foreign keys referencing dimension tables.
+DimProduct (Dimension Table): Stores unique product identifier records (StockCode) cleansed of hidden spaces and case anomalies.
+DimCustomer (Dimension Table): Contains unique CustomerID entries and geographic attributes (Country), filtered for valid customer identifiers.
+DimDate (Dimension Table): A dedicated calendar table engineered to support seamless date aggregations and trend analysis.
