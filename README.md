@@ -11,13 +11,14 @@ Starting from a raw, unorganized e-commerce transaction dataset, the data was th
 
 <img width="1563" height="805" alt="Ekran Resmi 2026-10-05 23 07 53" src="https://github.com/user-attachments/assets/9160e1a4-f0cc-4e82-ba9d-afc3e565bd13" />
 
+https://app.powerbi.com/links/t5eisDL2cF?ctid=647c584a-3f44-47e1-8242-8179421fea5a&pbi_source=linkShare
 
 ---
 
 ## 🏗️ Data Architecture & Star Schema Modeling
 To eliminate redundant attributes, optimize analytical performance, and enable accurate time-intelligence analysis, the transactional flat file was normalized into a classic **Star Schema** architecture:
 
-```text
+
     [DimCustomer] (1) ─── (*) [FactSales] (*) ─── (1) [DimProduct]
                                    │
                                    │ (*)
